@@ -7,17 +7,45 @@ export const getBlogList = async () => {
       cache: "no-store",
     });
 
-    console.log("res:", res);
+   
 
     if (!res.ok) {
       throw new Error("Failed to fetch");
     }
 
-    // const data = await res.json();
+    const data = await res.json();
 
     return data;
   } catch (error) {
-    console.log("error: ", error);
+   
+
+    return {
+      status: false,
+      data: [],
+    };
+  }
+};
+
+
+// ==== detail blog
+export const getDetailBlog = async (id) => {
+  try {
+    const res = await fetch(`${serverApiDomain}/api/blog/${id}`, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+   
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch");
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+   
 
     return {
       status: false,

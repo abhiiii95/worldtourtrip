@@ -34,6 +34,11 @@ const AboutBanner = ({banner,heading}) => {
           {banner?.map((val, i) => {
             return (
               <React.Fragment key={i}>
+                 {i > 0 && (
+                  <li>
+                    <Icon icon="ci:chevron-right-duo" width="18" height="18" />
+                  </li>
+                )}
                 {val?.route ? (
                   <li>
                     <Link href={val?.route}>{val?.routeText}</Link>
@@ -42,11 +47,7 @@ const AboutBanner = ({banner,heading}) => {
                   <li>{val?.routeText}</li>
                 )}
 
-                {i > 0 && (
-                  <li>
-                    <Icon icon="ci:chevron-right-duo" width="18" height="18" />
-                  </li>
-                )}
+               
               </React.Fragment>
             );
           })}
