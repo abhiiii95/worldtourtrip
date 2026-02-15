@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import Author from "./Author";
+import bContentModel from "./bContentModel";
+import Category from "./Category";
 
 const blogPageSchema = new mongoose.Schema(
   {
@@ -63,7 +66,7 @@ const blogPageSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export default mongoose.models.BlogPage ||

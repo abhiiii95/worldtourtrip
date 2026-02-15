@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",
+    "bcryptjs": "^3.0.3",
     "mongoose": "^8.16.5",
     "next": "15.4.8",
     "react": "19.1.0",

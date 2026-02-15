@@ -6,14 +6,28 @@ export async function GET() {
   try {
     await dbConnect();
 
-    const data = await blogModel.find().sort({createdAt:-1});
+    const data = await blogModel
+      .find(
+        {},
+        {
+          _id: 0,
+          title: 1,
+          imgageAlt: 1,
+          description: 1,
+          routPath: 1,
+          thumbnail: 1,
+          createdAt: 1,
+          updatedAt: 1,
+        },
+      )
+      .sort({ createdAt: -1 });
 
     return NextResponse.json(
       {
         success: true,
         data,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Error fetching blogs:", error);
@@ -23,7 +37,7 @@ export async function GET() {
         success: false,
         message: "Failed to fetch blogs",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
