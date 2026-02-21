@@ -9,11 +9,11 @@ export const navLinks = [
       route: "/about",
       routeText: "About Us",
     },
-    {
-      id: 3,
-      route: "/blog",
-      routeText: "Blogs",
-    },
+    // {
+    //   id: 3,
+    //   route: "/blog",
+    //   routeText: "Blogs",
+    // },
     {
       id: 4,
       route: "/contact",
