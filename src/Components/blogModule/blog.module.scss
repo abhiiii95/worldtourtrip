@@ -1,6 +1,10 @@
 .blogWrapper{
     padding-top: 70px;
     padding-bottom: 70px;
+    @media screen and (max-width:768px) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
     .blogContent{
         display: flex;
         gap: 24px;
@@ -8,6 +12,13 @@
         .blogItem{
             width: 100%;
             max-width: calc(100%/3 - (48px/3));
+            @media screen and (max-width:991px) {
+            max-width: calc(100%/2 - (24px/2));
+                
+            }
+            @media screen and (max-width:580px) {
+                max-width: 100%;
+            }
             // max-width: calc(100%/3);
         }
     }

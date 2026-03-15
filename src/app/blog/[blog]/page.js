@@ -1,17 +1,30 @@
 import BlogDetail from '@/Components/blogModule/blogDetail/BlogDetail'
-import { getDetailBlog } from '@/services/blogservices'
+import { getBlogList, getDetailBlog } from '@/services/blogservices'
 import React from 'react'
 
 const BlogDetailPage = async({params}) => {
-    const path = await params
-    const data = await getDetailBlog(path?.blog);
- 
+    const {blog} = await params
+    const data = await getDetailBlog(blog);
+    const allblog = await getBlogList();
+    const blogListData =allblog?.data ;
+  console.log(data,"databb")
 
   return (
     <>
-    <BlogDetail />
+    <BlogDetail data={data} blog={blog} allblog={blogListData}/>
     </>
   )
 }
 
-export default BlogDetailPage
+export default BlogDetailPage;
+export async function generateMetadata({ params }) {
+  const {blog} = await params
+  const data = await getDetailBlog(blog);
+  const blogData = data?.data;
+
+  return {
+    title: blogData?.metaTitle,
+    description: blogData?.metaDescription,
+    keywords: [blogData?.metaKeywords]
+  };
+}

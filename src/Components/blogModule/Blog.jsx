@@ -23,7 +23,7 @@ const blogListData =data?.data
     <>
       <AboutBanner
         banner={bannerData}
-        heading={"About Us – Your Trusted Travel Booking Platform"}
+        heading={"Blogs"} 
       />
       <section className={styles?.blogWrapper}>
         <div className="container">

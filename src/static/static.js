@@ -9,11 +9,11 @@ export const navLinks = [
       route: "/about",
       routeText: "About Us",
     },
-    // {
-    //   id: 3,
-    //   route: "/blog",
-    //   routeText: "Blogs",
-    // },
+    {
+      id: 3,
+      route: "/blog",
+      routeText: "Blogs",
+    },
     {
       id: 4,
       route: "/contact",
@@ -32,3 +32,27 @@ export const navLinks = [
       })
       .replace(",", " ,");
   }
+
+  // === blog date
+  export const getDatePart = (dateString, type) => {
+    const date = new Date(dateString);
+  
+    const months = [
+      "Jan","Feb","Mar","Apr","May","Jun",
+      "Jul","Aug","Sep","Oct","Nov","Dec"
+    ];
+  
+    switch (type) {
+      case "day":
+        return date.getDate();
+  
+      case "month":
+        return months[date.getMonth()]; // returns Jan, Feb, Mar...
+  
+      case "year":
+        return date.getFullYear();
+  
+      default:
+        return null;
+    }
+  };

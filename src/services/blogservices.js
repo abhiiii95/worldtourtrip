@@ -1,4 +1,4 @@
-const serverApiDomain = `http://localhost:3000`;
+const serverApiDomain = `http://localhost:3001`;
 
 export const getBlogList = async () => {
   try {

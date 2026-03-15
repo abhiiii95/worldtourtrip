@@ -5,14 +5,14 @@ import styles from "./aboutBanner.module.scss";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-const AboutBanner = ({banner,heading}) => {
+const AboutBanner = ({banner,heading,bannerData}) => {
 
   return (
     <section className={styles?.aboutBanner}>
       <div className={styles?.imageWrapper}>
         <Image
-          src={aboutBanner}
-          alt="about-banner"
+          src={bannerData?.thumbnail||aboutBanner}
+          alt={bannerData?.imgageAlt || "about-banner"}
           fill
           fetchPriority="high"
           quality={100}
