@@ -8,7 +8,7 @@ export const getBlogList = async () => {
       cache: "no-store",
     });
 
-    console.log(res,"data res")
+    // console.log(res,"data res")
    
 
     if (!res.ok) {
