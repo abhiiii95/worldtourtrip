@@ -3,6 +3,8 @@ import "./globals.css";
 import "../../src/Common/styles/global.scss"
 import Header from "@/Common/Components/Header/Header";
 import Footer from "@/Common/Components/Footer/Footer";
+export const dynamic = "force-dynamic";
+
 
 const baiJamjuree = Bai_Jamjuree({
   variable: "--font-bai",
