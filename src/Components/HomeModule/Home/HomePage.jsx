@@ -4,6 +4,7 @@ import HomeDestinations from '../HomeDestinations/HomeDestinations'
 import HomeAbout from '../HomeAbout/HomeAbout'
 
 const HomePage = () => {
+
   return (
     <>
      <HomeBanner /> 
