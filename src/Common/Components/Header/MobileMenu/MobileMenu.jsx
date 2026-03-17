@@ -28,7 +28,9 @@ const MobileMenu = ({ show, setShow, logo }) => {
         }`}
       >
         <div className={styles?.upContent}>
-          <Link href={"/"} className={styles?.logoWrapper}>
+          <Link href={"/"} className={styles?.logoWrapper}  onClick={() => {
+          setShow(false);
+        }}>
             <Image src={logo} alt="main-logo" title="main-logo" priority />
           </Link>
           <button
@@ -49,6 +51,9 @@ const MobileMenu = ({ show, setShow, logo }) => {
                   <Link
                     href={val?.route}
                     className={route == val?.route ? styles?.activeLink : null}
+                    onClick={() => {
+                      setShow(false);
+                    }}
                   >
                     {val?.routeText}
                   </Link>
