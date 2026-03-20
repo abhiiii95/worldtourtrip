@@ -2,7 +2,10 @@
     padding: 40px 0;
     .rows{
         display: flex;
-        gap: 24px;
+        gap: 30px;
+        @media screen and (max-width:1099px) {
+            flex-direction: column;
+        }
         .leftContent{
             flex: 1;
             .blogDateWrapper{
@@ -113,7 +116,60 @@
         }
         .rightContent{
             min-width: 320px;
+            max-width: 320px;
+            @media screen and (max-width:1099px) {
+                max-width: 100%;
+            min-width: auto;
+
+            }
+            .recentArticleHeading{
+                font-size: 20px;
+                line-height: 1.6;
+                font-weight: 600;
+                color: #191919;
+                margin-bottom: 25px;
+            }
+            .recentBlogWrapper{
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+                .hr{
+                    border-color: #eeeeee26;
+                }
+            }
             
         }
     }
+}
+// ==== recent blog card 
+.recentCard{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    &:hover{
+        .titleText{
+            color: #bf1a1a;
+        }
+    }
+    .imageWrapper{
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        overflow: hidden;
+        min-height: 80px;
+        min-width: 80px;
+        img{
+            object-fit: cover;
+        }
+    }
+    .titleText{
+        font-size: 16px;
+        font-weight: 500;
+        color: #191919;
+        line-height: 1.6;
+        display: block;
+        transition: all .2s;
+    }
+   
 }

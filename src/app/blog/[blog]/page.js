@@ -7,7 +7,6 @@ const BlogDetailPage = async({params}) => {
     const data = await getDetailBlog(blog);
     const allblog = await getBlogList();
     const blogListData =allblog?.data ;
-  console.log(data,"databb")
 
   return (
     <>

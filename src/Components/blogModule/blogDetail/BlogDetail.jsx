@@ -5,8 +5,9 @@ import { getDatePart } from "@/static/static";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import FaqSection from "@/Components/faqSection/FaqSection";
+import RecentBlogCard from "./RecentBlogCard";
 
-const BlogDetail = ({ data, blog,allblog }) => {
+const BlogDetail = ({ data, blog, allblog }) => {
   const blogData = data?.data;
   const bannerData = [
     {
@@ -20,9 +21,14 @@ const BlogDetail = ({ data, blog,allblog }) => {
       routeText: blogData?.title,
     },
   ];
+
   return (
     <>
-      <AboutBanner banner={bannerData} heading={blogData?.title} bannerData={blogData} />
+      <AboutBanner
+        banner={bannerData}
+        heading={blogData?.title}
+        bannerData={blogData}
+      />
       <section className={styles?.blogWrapper}>
         <div className="container">
           <div className={styles?.rows}>
@@ -39,7 +45,7 @@ const BlogDetail = ({ data, blog,allblog }) => {
                   </span>
                 </div>
                 <p className={styles?.category}>
-                <Icon icon="wordpress:category" width="24" height="24" />
+                  <Icon icon="wordpress:category" width="24" height="24" />
                   {blogData?.category?.categoryName}
                 </p>
               </div>
@@ -53,14 +59,25 @@ const BlogDetail = ({ data, blog,allblog }) => {
                 className={styles?.blogContent}
                 dangerouslySetInnerHTML={{ __html: blogData?.content?.content }}
               />
-              <FaqSection faqs={data?.faq?.faqs}/>
+              {data?.faq?.faqs && <FaqSection faqs={data?.faq?.faqs} />}
             </div>
-            {
-               allblog.length>1 &&
-            <div className={styles?.rightContent}>
-
-            </div>
-            }
+            {allblog.length > 1 && (
+              <div className={styles?.rightContent}>
+                <h5 className={styles?.recentArticleHeading}>
+                  Recent Articles
+                </h5>
+                <div className={styles?.recentBlogWrapper}>
+                  {allblog.filter((item)=>item.routPath !==blog).map((item, i) => (
+                    <React.Fragment key={item.id || i}>
+                      <RecentBlogCard {...item} />
+                      {i !== allblog.length - 1 && (
+                        <hr className={styles?.hr} />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
