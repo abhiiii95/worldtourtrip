@@ -52,6 +52,9 @@
                         text-align: left !important;
                         line-height: 1.4 !important;
                     }
+                    strong{
+                        font-weight: 600;
+                    }
                     
                 }
                 h2{
@@ -97,7 +100,7 @@
                    }
                    p{
                     font-size: 16px !important;
-                    font-weight: 600;
+                    // font-weight: 600;
                     @media screen and (max-width:580px) {
                         font-size: 15px !important;
                     }

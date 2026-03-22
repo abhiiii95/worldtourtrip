@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import styles from "./faq.module.scss";
+import { removeInlineStyles } from "@/static/static";
 
 const FaqSection = ({ faqs }) => {
 
@@ -10,6 +11,7 @@ const FaqSection = ({ faqs }) => {
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
 
   return (
     <div className={styles.faqWrapper}>
@@ -22,7 +24,7 @@ const FaqSection = ({ faqs }) => {
             className={styles.faqQuestion}
             onClick={() => toggleFAQ(index)}
           >
-            <span>{item.question}</span>
+            <span>{index+1}. {item.question}</span>
 
             <Icon
               icon="mdi:chevron-down"
@@ -34,7 +36,7 @@ const FaqSection = ({ faqs }) => {
           </div>
 
           {activeIndex === index && (
-            <div className={styles.faqAnswer} dangerouslySetInnerHTML={{__html:item.answer}} />
+            <div className={styles.faqAnswer} dangerouslySetInnerHTML={{__html:removeInlineStyles(item.answer)}} />
           )}
 
         </div>

@@ -27,7 +27,7 @@
     align-items: center;
     cursor: pointer;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     color: #191919;
     @media screen and (max-width:58px) {
         font-size: 16px;
@@ -42,6 +42,7 @@
     *{
     color: #6d6d6d !important;
     font-size: 16px !important;
+    font-weight: 500;
 
     @media screen and (max-width:58px) {
         font-size: 15px;

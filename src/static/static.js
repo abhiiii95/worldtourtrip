@@ -56,3 +56,21 @@ export const navLinks = [
         return null;
     }
   };
+
+
+  // ==== common function remove css
+  // Utility function to remove inline styles
+  export const removeInlineStyles = (htmlString) => {
+    if (!htmlString) return '';
+  
+    // SSR fallback — use regex
+    if (typeof document === 'undefined') {
+      return htmlString.replace(/\s*style\s*=\s*["'][^"']*["']/gi, '');
+    }
+  
+    // Client-side — use DOM
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlString;
+    tempDiv.querySelectorAll('*').forEach(el => el.removeAttribute('style'));
+    return tempDiv.innerHTML;
+  };

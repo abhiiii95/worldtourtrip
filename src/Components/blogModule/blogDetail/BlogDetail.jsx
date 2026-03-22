@@ -1,14 +1,17 @@
 import AboutBanner from "@/Common/Components/AboutBanner/AboutBanner";
 import React from "react";
 import styles from "./blogDetail.module.scss";
-import { getDatePart } from "@/static/static";
+import { BaseUrl, getDatePart, removeInlineStyles } from "@/static/static";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import FaqSection from "@/Components/faqSection/FaqSection";
 import RecentBlogCard from "./RecentBlogCard";
+import Script from "next/script";
 
 const BlogDetail = ({ data, blog, allblog }) => {
   const blogData = data?.data;
+  const cleanContent = removeInlineStyles(blogData?.content?.content);
+  console.log(blogData,"blogData")
   const bannerData = [
     {
       id: 1,
@@ -21,9 +24,98 @@ const BlogDetail = ({ data, blog, allblog }) => {
       routeText: blogData?.title,
     },
   ];
-
+  // === faq schema 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: data?.faq?.faqs.map(item => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.faqAnswer
+      }
+    }))
+  };
+  // === blog schema
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+  
+    headline: blogData?.title,
+    description: blogData?.description,
+  
+    image: [
+      blogData?.thumbnail // must be array
+    ],
+  
+    datePublished: blogData?.createdAt,
+    dateModified: blogData?.updatedAt,
+  
+    author: {
+      "@type": "Person",
+      name: blogData?.author?.authorName || "Admin"
+    },
+  
+    publisher: {
+      "@type": "Organization",
+      name: "WorldTourTrip", // keep brand name fixed (important)
+      logo: {
+        "@type": "ImageObject",
+        url: `${BaseUrl}/logo.svg` // add your actual logo URL
+      }
+    },
+  
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BaseUrl}/blog/${blogData?.routPath}`
+    },
+  
+    articleSection: "Travel",
+  
+    keywords: blogData?.metaKeywords || "travel, tourism, blog",
+  
+    inLanguage: "en"
+  };
+  // === bread crumb schema
+  const breadSchema ={
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${BaseUrl}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${BaseUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": blogData?.title,
+        "item": `${BaseUrl}/blog/${blogData?.routPath}`
+      }
+    ]
+  }
   return (
     <>
+      <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+        />
+      <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadSchema) }}
+        />
       <AboutBanner
         banner={bannerData}
         heading={blogData?.title}
@@ -57,7 +149,7 @@ const BlogDetail = ({ data, blog, allblog }) => {
               } */}
               <div
                 className={styles?.blogContent}
-                dangerouslySetInnerHTML={{ __html: blogData?.content?.content }}
+                dangerouslySetInnerHTML={{ __html: cleanContent }}
               />
               {data?.faq?.faqs && <FaqSection faqs={data?.faq?.faqs} />}
             </div>
