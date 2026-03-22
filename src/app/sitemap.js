@@ -49,7 +49,7 @@ export default async function sitemap() {
       blogRoutes = blogListData.map((blog) => ({
         url: `${baseUrl}/blog/${blog.routPath}`,
         lastModified: new Date(blog.updatedAt || blog.createdAt),
-        priority: 0.64,
+        priority: 0.8,
       }))
     }
   } catch (error) {
