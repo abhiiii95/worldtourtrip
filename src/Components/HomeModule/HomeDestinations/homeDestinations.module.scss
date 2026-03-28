@@ -36,7 +36,7 @@
     flex-wrap: wrap;
     row-gap: 15px;
     margin-top: 25px;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
 
     @media (min-width: 992px) {
       overflow: visible;
@@ -47,7 +47,8 @@
 
     .destItem {
       width: 100%;
-      max-width: calc(50% - (20px / 2));
+      // max-width: calc(50% - (20px / 2));
+      max-width: 100%;
 
       @media (min-width: 580px) {
         min-width: 250px;

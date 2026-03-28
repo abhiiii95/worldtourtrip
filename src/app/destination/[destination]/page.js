@@ -13,20 +13,20 @@ const DestinationDetailPage = async({params}) => {
 
   return (
     <>
-    <DestinationDetail data={data} destination={destination} allblog={destinationListData}/>
+    <DestinationDetail data={data} destination={destination} allDest={destinationListData}/>
     </>
   )
 }
 
 export default DestinationDetailPage;
 export async function generateMetadata({ params }) {
-  const {blog} = await params
-  const data = await getDetailBlog(blog);
-  const blogData = data?.data;
+  const {destination} = await params
+  const data = await getDetailDestination(destination);
+  const destinationgData = data?.destinations;
 
   return {
-    title: blogData?.metaTitle,
-    description: blogData?.metaDescription,
-    keywords: [blogData?.metaKeywords]
+    title: destinationgData?.metaTitle,
+    description: destinationgData?.metaDescription,
+    keywords: [destinationgData?.metaKeywords]
   };
 }

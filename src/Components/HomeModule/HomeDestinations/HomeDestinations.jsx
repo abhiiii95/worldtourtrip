@@ -5,50 +5,54 @@ import goa from "../../../../public/images/goa-1.jpg";
 import jaipur from "../../../../public/images/jaipur-1.jpg";
 import kerla from "../../../../public/images/kerla-1.jpg";
 import leh from "../../../../public/images/leh-1.jpg";
+import { getDestinationList } from '@/services/destinationapi';
+import Link from 'next/link';
+import DestinationCard from '@/Components/destination/destinationCard/DestinationCard';
 
-const HomeDestinations = () => {
-    const destData = [
-        {
-            id:1,
-            image:goa,
-            alt:"goa",
-            title:"Goa",
-            dest:"Goa"
-        },
-        {
-            id:2,
-            image:jaipur,
-            alt:"jaipur",
-            title:"Jaipur",
-            dest:"Jaipur"
-        },
-        {
-            id:1,
-            image:kerla,
-            alt:"kerla",
-            title:"Kerla",
-            dest:"Kerla"
-        },
-        {
-            id:1,
-            image:leh,
-            alt:"leh",
-            title:"Leh ladakh",
-            dest:"Leh ladakh"
-        },
-    ]
+const HomeDestinations = async() => {
+    // const destData = [
+    //     {
+    //         id:1,
+    //         image:goa,
+    //         alt:"goa",
+    //         title:"Goa",
+    //         dest:"Goa"
+    //     },
+    //     {
+    //         id:2,
+    //         image:jaipur,
+    //         alt:"jaipur",
+    //         title:"Jaipur",
+    //         dest:"Jaipur"
+    //     },
+    //     {
+    //         id:1,
+    //         image:kerla,
+    //         alt:"kerla",
+    //         title:"Kerla",
+    //         dest:"Kerla"
+    //     },
+    //     {
+    //         id:1,
+    //         image:leh,
+    //         alt:"leh",
+    //         title:"Leh ladakh",
+    //         dest:"Leh ladakh"
+    //     },
+    // ]
+    const data = await getDestinationList();
+    const destinationListData = data?.destinations;
   return (
     <section className={styles?.homeDestination}>
       <div className='container'>
         <h4 className={styles?.heading}>Most Popular <span>Destinations</span></h4>
         <div className={styles?.destWrapper}>
             {
-                destData?.map((val,i)=>{
+                destinationListData?.map((val,i)=>{
                     return(
-                        <div className={styles?.destItem} key={i}>
-                        <Image src={val?.image} alt={val?.alt} title={val?.title} quality={100} />
-                        <p>{val?.dest}</p>
-                    </div>
+                        <div key={i} className={styles?.destItem}>
+                        <DestinationCard {...val} />
+                        </div>
                     )
                 })
             }

@@ -3,12 +3,10 @@ import React from "react";
 import styles from "./destinationDetail.module.scss";
 import { BaseUrl, getDatePart, removeInlineStyles } from "@/static/static";
 import { Icon } from "@iconify/react";
-import Image from "next/image";
 import FaqSection from "@/Components/faqSection/FaqSection";
-import RecentBlogCard from "./RecentBlogCard";
-import Script from "next/script";
+import RecentDestinationCard from "./RecentDestinationCard";
 
-const DestinationDetail = ({ data, destination, allblog }) => {
+const DestinationDetail = ({ data, destination, allDest }) => {
   const destinationData = data?.destinations;
   console.log(destinationData,"destinationData destinationData")
   const cleanContent = removeInlineStyles(destinationData?.content);
@@ -66,16 +64,16 @@ const DestinationDetail = ({ data, destination, allblog }) => {
               />
               {data?.faq?.faqs && <FaqSection faqs={data?.faq?.faqs} />}
             </div>
-            {allblog.length > 1 && (
+            {allDest.length > 1 && (
               <div className={styles?.rightContent}>
                 <h5 className={styles?.recentArticleHeading}>
                   Recent Destinations
                 </h5>
                 <div className={styles?.recentBlogWrapper}>
-                  {allblog.filter((item)=>item.routPath !==blog).map((item, i) => (
+                  {allDest.filter((item)=>item.routPath !== destination).map((item, i) => (
                     <React.Fragment key={item.id || i}>
-                      <RecentBlogCard {...item} />
-                      {i !== allblog.length - 1 && (
+                      <RecentDestinationCard {...item} />
+                      {i !== allDest.length - 1 && (
                         <hr className={styles?.hr} />
                       )}
                     </React.Fragment>
