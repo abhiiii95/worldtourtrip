@@ -8,7 +8,6 @@ import RecentDestinationCard from "./RecentDestinationCard";
 
 const DestinationDetail = ({ data, destination, allDest }) => {
   const destinationData = data?.destinations;
-  console.log(destinationData,"destinationData destinationData")
   const cleanContent = removeInlineStyles(destinationData?.content);
   const bannerData = [
     {
