@@ -24,6 +24,11 @@ export default async function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/destination`,
+      lastModified: new Date('2026-03-20T18:08:11+00:00'),
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: new Date('2026-03-20T18:08:11+00:00'),
       priority: 0.8,
