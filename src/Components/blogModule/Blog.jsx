@@ -8,10 +8,7 @@ import { getBlogList } from "@/services/blogservices";
 const Blog = async () => {
 const data = await getBlogList();
 const blogListData = data?.data ;
-console.log(data,"new data")
-console.log(process.env.NEXT_PUBLIC_BASE_URL,"process.env.NEXT_PUBLIC_BASE_URL")
  
-
   const bannerData = [
     {
       id: 1,

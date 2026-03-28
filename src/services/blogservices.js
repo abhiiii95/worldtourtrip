@@ -14,11 +14,7 @@ export const getBlogList = async () => {
     if (!res.ok) {
       throw new Error("Failed to fetch");
     }
-
-
     const data = await res.json();
-    console.log(data,"data api")
-
     return data;
   } catch (error) {
    
