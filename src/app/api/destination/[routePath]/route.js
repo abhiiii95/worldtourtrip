@@ -2,12 +2,11 @@ import dbConnect from "@/lib/mongodb";
 import Destination from "@/models/Destination";
 import Faq from "@/models/Faq";
 
-export async function GET(request) {
+export async function GET(request, { params }) {
   try {
     await dbConnect();
 
-    const { searchParams } = new URL(request.url);
-    const routePath = searchParams.get("routePath");
+    const { routePath } = params;
 
     const [destinations, faq] = await Promise.all([
       Destination.findOne({ routPath: routePath }),
@@ -15,15 +14,12 @@ export async function GET(request) {
       Faq.findOne({ slug: routePath }).lean(),
     ]);
 
-    return new Response(
-      JSON.stringify({ destinations, faq }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    return new Response(JSON.stringify({ destinations, faq }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     console.error("Failed to fetch destinations:", error);
 
@@ -34,7 +30,7 @@ export async function GET(request) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
   }
 }
