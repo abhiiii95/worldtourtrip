@@ -1,4 +1,6 @@
-import { getBlogList } from "@/services/blogservices"
+import { getBlogList } from "@/services/blogservices";
+import { getDestinationList } from "@/services/destinationapi";
+
 
 
 export default async function sitemap() {
@@ -39,7 +41,8 @@ export default async function sitemap() {
   ]
 
   // 2. Dynamic blog routes
-  let blogRoutes = []
+  let blogRoutes = [];
+  let destinationRoutes = [];
 
   try {
     const data = await getBlogList()
@@ -55,6 +58,20 @@ export default async function sitemap() {
   } catch (error) {
     console.error('Blog sitemap fetch failed:', error)
   }
+  try {
+    const data = await getDestinationList()
+    const destListData = data?.destinations;
 
-  return [...staticRoutes, ...blogRoutes]
+    if (Array.isArray(destListData)) {
+      destinationRoutes = destListData.map((dest) => ({
+        url: `${baseUrl}/destination/${dest.routPath}`,
+        lastModified: new Date(dest.updatedAt || dest.createdAt),
+        priority: 0.8,
+      }))
+    }
+  } catch (error) {
+    console.error('dest sitemap fetch failed:', error)
+  }
+
+  return [...staticRoutes, ...blogRoutes , ...destinationRoutes]
 }
