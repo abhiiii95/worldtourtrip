@@ -1,0 +1,54 @@
+.destinationCard{
+    cursor: pointer;
+    &:hover{
+        .title{
+            a{
+                color: #bf1a1a;
+            }}
+    }
+    .imageWrapper{
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin-bottom: 18px;
+        height: 270px;
+        display: block;
+        @media screen and (max-width:580px) {
+            height: 200px;
+        }
+        &:hover{
+            img {
+
+            transform: scale(1.2);
+            }
+        }
+        img {
+            transition: all .2s;
+            object-fit:cover;
+
+        };    
+    }
+    .title{
+        a{
+            font-size: 22px;
+            color: #161616;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            line-height: 28px;
+            transition: all .2s;
+            text-align: center;
+            @media screen and (max-width:580px) {
+                font-size: 16px;
+            line-height: 24px;
+
+            }
+            &:hover{
+                color: #bf1a1a;
+            }
+        }
+      
+    }
+  
+}

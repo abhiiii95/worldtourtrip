@@ -1,0 +1,178 @@
+.blogWrapper{
+    padding: 40px 0;
+    .rows{
+        display: flex;
+        gap: 30px;
+        @media screen and (max-width:1099px) {
+            flex-direction: column;
+        }
+        .leftContent{
+            flex: 1;
+            .blogDateWrapper{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .date{
+                    width: fit-content;
+                    padding-right: 15px;
+                    border-right: 1px solid #6d6d6d;
+                    .getDate{
+                        display: block;
+                        text-align: center;
+                        color: #191919;
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 18px;
+
+                    }
+                    .month{
+                        color: #6d6d6d;
+                        margin-top: 4px;
+                        line-height: 12px;
+                    }
+                }
+                .category{
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    color: #191919;
+                    font-size: 15px;
+                }
+            }
+            .blogContent
+            {
+                margin-top: 30px;
+
+                *{
+                    margin-bottom: 15px !important;
+                    color: #191919 !important;
+                    line-height: 1.6 !important;
+                    text-align: justify !important;
+                    @media screen and (max-width:1099px) {
+                        text-align: left !important;
+                        line-height: 1.4 !important;
+                    }
+                    strong{
+                        font-weight: 600;
+                    }
+                    
+                }
+                h2{
+                    font-size: 28px !important;
+                    font-weight: 600;
+                    @media screen and (max-width:580px) {
+                        font-size: 22px !important;
+                    }
+                   }
+                   h3{
+                    font-size: 24px !important;
+                    font-weight: 600;
+                    @media screen and (max-width:580px) {
+                        font-size: 20px !important;
+                    }
+    
+                   }
+                   h4{
+                    font-size: 22px !important;
+                    font-weight: 600;
+                    @media screen and (max-width:580px) {
+                        font-size: 18px !important;
+                    }
+    
+                   }
+                   h5{
+                    font-size: 20px !important;
+                    font-weight: 600;
+                    @media screen and (max-width:580px) {
+                        font-size: 16px !important;
+                    }
+
+    
+                   }
+                   h6{
+                    font-size: 18px !important;
+                    font-weight: 600;
+                    @media screen and (max-width:580px) {
+                        font-size: 16px !important;
+                    }
+
+    
+                   }
+                   p{
+                    font-size: 16px !important;
+                    // font-weight: 600;
+                    @media screen and (max-width:580px) {
+                        font-size: 15px !important;
+                    }
+
+                   }
+            }
+            .imageWrapper{
+                position: relative;
+                height: 600px;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+                margin-top: 30px;
+                border: 1px solid #eee;
+            }
+        }
+        .rightContent{
+            min-width: 320px;
+            max-width: 320px;
+            @media screen and (max-width:1099px) {
+                max-width: 100%;
+            min-width: auto;
+
+            }
+            .recentArticleHeading{
+                font-size: 20px;
+                line-height: 1.6;
+                font-weight: 600;
+                color: #191919;
+                margin-bottom: 25px;
+            }
+            .recentBlogWrapper{
+                display: flex;
+                gap: 20px;
+                flex-direction: column;
+                .hr{
+                    border-color: #eeeeee26;
+                }
+            }
+            
+        }
+    }
+}
+// ==== recent blog card 
+.recentCard{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    &:hover{
+        .titleText{
+            color: #bf1a1a;
+        }
+    }
+    .imageWrapper{
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        overflow: hidden;
+        min-height: 80px;
+        min-width: 80px;
+        img{
+            object-fit: cover;
+        }
+    }
+    .titleText{
+        font-size: 16px;
+        font-weight: 500;
+        color: #191919;
+        line-height: 1.6;
+        display: block;
+        transition: all .2s;
+    }
+   
+}

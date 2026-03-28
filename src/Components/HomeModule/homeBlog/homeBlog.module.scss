@@ -50,6 +50,13 @@
         .blogItem{
             max-width: calc((100%/3) - (48px/3));
             width: 100%;
+            @media screen and (max-width:991px) {
+              max-width: calc(100%/2 - (24px/2));
+                  
+              }
+              @media screen and (max-width:580px) {
+                  max-width: 100%;
+              }
         }
       }
 }
