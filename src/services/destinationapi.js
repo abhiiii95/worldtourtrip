@@ -1,5 +1,5 @@
-const serverApiDomain = `http://localhost:3000`;
-// const serverApiDomain = `https://worldtourtrip.com`;
+// const serverApiDomain = `http://localhost:3000`;
+const serverApiDomain = `https://worldtourtrip.com`;
 export const getDestinationList = async () => {
 
   try {
