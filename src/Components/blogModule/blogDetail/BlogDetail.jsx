@@ -11,7 +11,6 @@ import Script from "next/script";
 const BlogDetail = ({ data, blog, allblog }) => {
   const blogData = data?.data;
   const cleanContent = removeInlineStyles(blogData?.content?.content);
-  console.log(blogData,"blogData")
   const bannerData = [
     {
       id: 1,
@@ -28,12 +27,14 @@ const BlogDetail = ({ data, blog, allblog }) => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: data?.faq?.faqs.map(item => ({
+    mainEntity: data?.faq?.faqs
+    ?.filter(item => item.question && item.faqAnswer) 
+    .map(item => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.faqAnswer
+        text: removeInlineStyles(item.faqAnswer) || "No Answer"
       }
     }))
   };
@@ -102,6 +103,7 @@ const BlogDetail = ({ data, blog, allblog }) => {
       }
     ]
   }
+  
   return (
     <>
       <Script
