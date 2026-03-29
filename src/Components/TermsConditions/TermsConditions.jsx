@@ -17,95 +17,63 @@ const TermsConditions = () => {
         <div className='container'>
             <div className={styles?.content}>
                 <h2>
-                Terms and Conditions
+                Terms & Conditions
                 </h2>
-                <p>
-                Welcome to our travel booking platform. By accessing or using our website and services, including flight bookings, hotel reservations, and holiday packages, you agree to comply with the following Terms and Conditions. Please read them carefully.
-                </p>
+               
                 <h5>
-                1. General Use
+                Introduction
                 </h5>
-               <ul>
-                <li>
-                Users must be at least 18 years old or have the consent of a legal guardian to use the platform.
-                </li>
-                <li>
-                All content on the website, including travel information, images, and pricing, is for informational purposes and may change without notice.
-                </li>
-               </ul>
-               <h5>
-               2. Booking and Payments
-               </h5>
-               <ul>
-                    <li>
-                    All bookings for flights, hotels, and holiday packages are subject to availability.
-                    </li>
-                    <li>
-                    Payment must be made through the provided secure payment methods.
-                    </li>
-                    <li>
-                    Prices and offers may change and are subject to the terms and conditions of the respective airlines, hotels, and service providers.
-                    </li>
-               </ul>
-               <h5>
-               3. Cancellations and Refunds
-               </h5>
                <p>
-               Cancellation and refund policies depend on the specific supplier (airlines, hotels, or travel operators).
-               </p>
-               <p>
-               Users must check individual booking policies before confirming a reservation.
-               </p>
-               <p>
-               The platform is not responsible for fees, penalties, or charges imposed by third-party providers.
+               Hello and welcome to WorldTourTrip! We appreciate you taking a moment to read through our Terms & Conditions before diving into everything our platform has to offer. These terms are here to make sure you have a clear and honest picture of what WorldTourTrip is, how it operates, and what you can expect from us as a reader. Across this document, any mention of "www.worldtourtrip.com," "we," or "our" is a reference to WorldTourTrip, while "you," "your," and "users" refer to you as someone who visits and reads content on our website. Taking the time to go through this page means you will know exactly where we stand and what we expect in return. Continuing to browse our platform after reading this means you are on board with everything laid out here. If something here does not sit right with you, we would ask that you step away from the platform for now.
                </p>
                <h5>
-               4. Liability
-               </h5>
-               <ul>
-                <li>
-                We act as an intermediary between the user and travel service providers.
-                </li>
-                <li>
-                We are not responsible for delays, cancellations, or issues caused by airlines, hotels, or third-party service providers.
-                </li>
-                <li>
-                Users agree to use the platform at their own risk.
-                </li>
-               </ul>
-               <h5>
-               5. User Obligations
+               What We Offer
                </h5>
                <p>
-               Users must provide accurate information while making bookings.
+               WorldTourTrip is a travel blog, and that is genuinely all it is. We put together destination guides, travel tips, cultural pieces, and articles that we hope make the world feel a little more within reach for the people who read them. We are not a travel agency, we are not a ticketing service, and we are not involved in any kind of booking or transaction. There are no accounts to create on our platform, no forms waiting to be filled out, and no data being asked of you at any point. When you visit WorldTourTrip, your only job is to read. That is all we have ever wanted from you.
                </p>
-               <p>
-               Users must comply with all local laws, airline regulations, and hotel rules.
-               </p>
-               <h5>
-               6. Privacy
-               </h5>
-               <ul>
-
-               <li>
-               Personal data is collected, stored, and processed according to our Privacy Policy.
-               </li>
-               <li>
-               Users consent to the use of their information for booking, communication, and service improvement purposes.
-               </li>
-               </ul>
-               <h5>
-               7. Modifications
-               </h5>
-               <ul>
-                <li>
-                We reserve the right to modify these Terms and Conditions at any time.
-                </li>
-                <li>
-Continued use of the platform constitutes acceptance of the updated terms.
-                </li>
-               </ul>
-            
+            <h5>
+            Accuracy of Information
+            </h5>
+            <p>
+            Each article that goes up on WorldTourTrip is put together carefully, with a real intention to be useful and honest. That said, the world of travel does not stand still. Situations shift, rules get updated, and the reality on the ground at any given destination can look very different from what was written about it months earlier. A few specific situations where our content may not reflect the latest picture include the following:
+            </p>
+            <ul>
+              <li>
+              (i) If entry requirements, visa conditions, or travel regulations connected to a particular destination have been updated or revised by the authorities responsible for them.
+              </li>
+              <li>
+              (ii) If a destination has gone through political, environmental, or safety-related changes that could meaningfully affect what a traveller experiences there.
+              </li>
+              <li>
+              (iii) If prices, schedules, or any operational details mentioned inside one of our articles have changed since the piece was first written and published.
+              </li>
+            </ul>
+            <p>
+            Before making any real travel plans, we strongly encourage you to check in with official government portals, embassy websites, or a licensed travel professional who can give you the most current picture. WorldTourTrip puts everything out there in good faith, but we cannot take on responsibility for plans made on the basis of our content alone.
+            </p>
+            <h5>
+            Intellectual Property
+            </h5>
+            <p>
+            Every single thing on WorldTourTrip, whether it is a written article, a photograph, an illustration, or the overall design of the site, has been created with genuine care and effort. It belongs to the people who contributed it, and it sits under the protection of copyright law. You are welcome to share a link to anything you find here, or lift a short passage for reference, as long as you credit us properly and point back to where it came from. What we do ask is that you do not take full articles and republish them elsewhere, use anything from our platform to make money without speaking to us beforehand, or run any kind of automated tool across the site to extract or copy our content.
+            </p>
+            <h5>
+            External Links
+            </h5>
+            <p>
+            Here and there, our articles will point you toward other websites, usually because we think they offer something useful or add context to what we have written. We have no involvement in how those sites are run or what their policies look like, so clicking through to one of them is entirely your call. We would encourage you to have a look at the terms and privacy policy of any external site you land on. If something goes wrong as a result of visiting a third-party website you found through us, that falls outside of what we can be responsible for. A link appearing on WorldTourTrip is not the same as us vouching for the site it leads to.
+            </p>
+            <h5>
+            Limitation of Liability
+            </h5>
+            <p>We put a lot of effort into keeping WorldTourTrip reliable, accurate, and running properly. But we are an informational platform, and we have to be straight with you that our responsibility does have limits. WorldTourTrip, along with everyone who contributes to it, cannot be held accountable for any inconvenience, loss, or damage that results from using our platform, leaning on our content for an important decision, any technical issues or downtime the site may experience, or any gaps or mistakes that appear in our published material. The platform is offered as it is, and while we are always working to make it better, we cannot guarantee it will be perfect every single time you visit.</p>
+            <h5>
+            Changes to Terms & Conditions
+            </h5>
+            <p>
+            These Terms & Conditions will be looked at and updated from time to time as WorldTourTrip grows and things change around us. When that happens, the revised version will go live on this page straight away. We suggest checking back occasionally so nothing catches you off guard. If something significant changes, we will make a point of flagging it clearly on the website. Any questions about what is written here can be sent to us at info@worldtourtrip.com and we will come back to you as soon as we can.
+            </p>
             </div>
         </div>
       </section>

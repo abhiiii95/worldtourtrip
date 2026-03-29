@@ -8,7 +8,6 @@ import DestinationCard from "./destinationCard/DestinationCard";
 const Destination = async () => {
 const data = await getDestinationList();
 const destinationListData = data?.destinations ;
-console.log(destinationListData,"destinationListData")
  
   const bannerData = [
     {
