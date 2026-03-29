@@ -3,6 +3,7 @@ import HomeBanner from '../HomeBanner/HomeBanner'
 import HomeDestinations from '../HomeDestinations/HomeDestinations'
 import HomeAbout from '../HomeAbout/HomeAbout'
 import HomeBlog from '../homeBlog/HomeBlog'
+import HomeWhyChoose from '../homeWhyChoose/HomeWhyChoose'
 
 const HomePage = () => {
 
@@ -11,6 +12,7 @@ const HomePage = () => {
      <HomeBanner /> 
      <HomeDestinations />
      {/* <HomeAbout /> */}
+     <HomeWhyChoose />
      <HomeBlog />
     </>
   )
