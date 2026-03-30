@@ -23,20 +23,23 @@ const BlogDetail = ({ data, blog, allblog }) => {
       routeText: blogData?.title,
     },
   ];
+ 
+ 
   // === faq schema 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: data?.faq?.faqs
-    ?.filter(item => item.question && item.faqAnswer) 
-    .map(item => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: removeInlineStyles(item.faqAnswer) || "No Answer"
-      }
-    }))
+    mainEntity: data?.faq?.faqs?.map(item => {
+  
+      return {
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer.replace(/<[^>]*>/g, '') || "No Answer"
+        }
+      };
+    })
   };
   // === blog schema
   const blogSchema = {
