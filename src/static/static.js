@@ -26,7 +26,7 @@ export const navLinks = [
     },
   ];
   export const BaseUrl = "https://www.worldtourtrip.com";
-  const serverApiDomain = `https://worldtourtrip.com`;
+  export const serverApiDomain = `https://worldtourtrip.com`;
   // export const serverApiDomain = `http://localhost:3000`;
 
 // for date
