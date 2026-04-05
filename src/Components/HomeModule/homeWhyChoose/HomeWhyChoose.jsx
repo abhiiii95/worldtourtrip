@@ -26,13 +26,13 @@ const HomeWhyChoose = () => {
       body: "Every guide, every article, every tip we put out is sitting right there waiting for you the moment you arrive. Free today, free always.",
       accent: "03",
     },
-    {
-      id: 4,
-      icon: <Icon icon="majesticons:timer-line" width="24" height="24" />,
-      heading: "Every Article Earned Its Place",
-      body: "Nothing goes up on WorldTourTrip just to fill space. We are interested in writing that actually does something for the person reading it — and we hold that standard every single time.",
-      accent: "04",
-    },
+    // {
+    //   id: 4,
+    //   icon: <Icon icon="majesticons:timer-line" width="24" height="24" />,
+    //   heading: "Every Article Earned Its Place",
+    //   body: "Nothing goes up on WorldTourTrip just to fill space. We are interested in writing that actually does something for the person reading it — and we hold that standard every single time.",
+    //   accent: "04",
+    // },
   ];
   return (
     <section className={styles?.whyWrapper}>

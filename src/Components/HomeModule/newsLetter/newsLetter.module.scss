@@ -1,0 +1,122 @@
+@import "../../../Common/styles/varible";
+
+.newsLetter {
+  padding: 30px 0;
+  background: #bf1a1a1c;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width:991px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  .iconText {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    .heading {
+      font-size: 28px;
+      line-height: 36px;
+      color: $blackColor;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      font-weight: 600;
+
+      span {
+        color: $primaryColor;
+      }
+
+      @media (max-width: 992px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      @media (max-width: 580px) {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+
+    .subText {
+      color: #5b5b5b;
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
+
+  svg {
+    color: #c01a1a5e;
+
+    @media screen and (max-width:370px) {
+      display: none;
+    }
+  }
+
+  .inputWrapper {
+    min-width: 430px;
+    border: 1px solid #c01a1a;
+    border-radius: 10px;
+    display: flex;
+    // overflow: hidden;
+    position: relative;
+
+    @media screen and (max-width:1199px) {
+      min-width: 400px;
+    }
+
+    @media screen and (max-width:991px) {
+      min-width: auto;
+      width: 100%;
+      max-width: 550px;
+    }
+
+    input {
+      padding: 15px;
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      border-radius: 10px 0 0 10px;
+
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #c01a1a;
+      outline: none;
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      border-radius: 0px 10px 10px 0px;
+
+      @media screen and (max-width:370px) {
+        padding: 12px;
+      }
+
+      &:hover {
+        background: #9d0606;
+      }
+    }
+  }
+}
+.message{
+  position: absolute;
+  bottom: -20px;
+  font-size: 13px;
+  font-weight: 500;
+  &.success{
+    color: #028833;
+  }
+  &.error{
+    color:#ef4444;
+  }
+}

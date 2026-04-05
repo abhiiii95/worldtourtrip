@@ -4,6 +4,7 @@ import HomeDestinations from '../HomeDestinations/HomeDestinations'
 import HomeAbout from '../HomeAbout/HomeAbout'
 import HomeBlog from '../homeBlog/HomeBlog'
 import HomeWhyChoose from '../homeWhyChoose/HomeWhyChoose'
+import NewsLetter from '../newsLetter/NewsLetter'
 
 const HomePage = () => {
 
@@ -14,6 +15,7 @@ const HomePage = () => {
      {/* <HomeAbout /> */}
      <HomeWhyChoose />
      <HomeBlog />
+     <NewsLetter />
     </>
   )
 }
