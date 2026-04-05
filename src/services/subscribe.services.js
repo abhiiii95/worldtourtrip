@@ -1,8 +1,9 @@
-import { serverApiDomain } from "@/static/static";
+// import { serverApiDomain } from "@/static/static";
+const serverApiDomain = `https://worldtourtrip.com`;
 
 export const subscribeEmail = async (email) => {
   try {
-    const res = await fetch(`${serverApiDomain}/api/subscribe`, {
+    const res = await fetch(`/api/subscribe`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
