@@ -1,5 +1,6 @@
 import { getBlogList } from "@/services/blogservices";
 import { getDestinationList } from "@/services/destinationapi";
+import { getPackageList } from "@/services/packageServices";
 
 
 
@@ -27,6 +28,11 @@ export default async function sitemap() {
       url: `${baseUrl}/destination`,
       lastModified: new Date('2026-03-20T18:08:11+00:00'),
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/package`,
+      lastModified: new Date('2026-03-20T18:08:11+00:00'),
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
@@ -78,5 +84,21 @@ export default async function sitemap() {
     console.error('dest sitemap fetch failed:', error)
   }
 
-  return [...staticRoutes, ...blogRoutes , ...destinationRoutes]
+  let packageRoutes = [];
+  try {
+    const data = await getPackageList()
+    const pkgListData = data?.data
+
+    if (Array.isArray(pkgListData)) {
+      packageRoutes = pkgListData.map((pkg) => ({
+        url: `${baseUrl}/package/${pkg.slug}`,
+        lastModified: new Date(pkg.updatedAt || pkg.createdAt),
+        priority: 0.9,
+      }))
+    }
+  } catch (error) {
+    console.error('Package sitemap fetch failed:', error)
+  }
+
+  return [...staticRoutes, ...blogRoutes, ...destinationRoutes, ...packageRoutes]
 }

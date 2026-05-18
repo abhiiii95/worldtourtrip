@@ -82,10 +82,13 @@ export default function PackageListing() {
     list = list.filter((p) => p.duration >= dur.min && p.duration <= dur.max);
 
     const bud = BUDGETS[budgetIdx];
-    list = list.filter((p) => p.price >= bud.min && p.price <= bud.max);
+    list = list.filter((p) => {
+      const total = (p.price || 0) + (p.margin || 0);
+      return total >= bud.min && total <= bud.max;
+    });
 
-    if (sort === "price_asc") list.sort((a, b) => a.price - b.price);
-    else if (sort === "price_desc") list.sort((a, b) => b.price - a.price);
+    if (sort === "price_asc") list.sort((a, b) => ((a.price || 0) + (a.margin || 0)) - ((b.price || 0) + (b.margin || 0)));
+    else if (sort === "price_desc") list.sort((a, b) => ((b.price || 0) + (b.margin || 0)) - ((a.price || 0) + (a.margin || 0)));
     else if (sort === "rating") list.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     else list.sort((a, b) => (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0));
 
