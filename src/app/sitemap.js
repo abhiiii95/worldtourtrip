@@ -2,12 +2,9 @@ import { getBlogList } from "@/services/blogservices";
 import { getDestinationList } from "@/services/destinationapi";
 import { getPackageList } from "@/services/packageServices";
 
-
-
 export default async function sitemap() {
   const baseUrl = 'https://worldtourtrip.com'
 
-  // 1. Static routes
   const staticRoutes = [
     {
       url: `${baseUrl}/`,
@@ -51,14 +48,13 @@ export default async function sitemap() {
     },
   ]
 
-  // 2. Dynamic blog routes
   let blogRoutes = [];
   let destinationRoutes = [];
+  let packageRoutes = [];
 
   try {
     const data = await getBlogList()
     const blogListData = data?.data
-
     if (Array.isArray(blogListData)) {
       blogRoutes = blogListData.map((blog) => ({
         url: `${baseUrl}/blog/${blog.routPath}`,
@@ -69,10 +65,10 @@ export default async function sitemap() {
   } catch (error) {
     console.error('Blog sitemap fetch failed:', error)
   }
+
   try {
     const data = await getDestinationList()
     const destListData = data?.destinations;
-
     if (Array.isArray(destListData)) {
       destinationRoutes = destListData.map((dest) => ({
         url: `${baseUrl}/destination/${dest.routPath}`,
@@ -81,14 +77,12 @@ export default async function sitemap() {
       }))
     }
   } catch (error) {
-    console.error('dest sitemap fetch failed:', error)
+    console.error('Destination sitemap fetch failed:', error)
   }
 
-  let packageRoutes = [];
   try {
     const data = await getPackageList()
     const pkgListData = data?.data
-
     if (Array.isArray(pkgListData)) {
       packageRoutes = pkgListData.map((pkg) => ({
         url: `${baseUrl}/package/${pkg.slug}`,
