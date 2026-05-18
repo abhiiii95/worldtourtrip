@@ -1,88 +1,114 @@
 @import "../../../Common/styles/varible";
 
 .homeDestination {
-  padding: 20px 0;
-  @media screen and (min-width:991px) {
-    padding: 60px 0 60px;
+  padding: 40px 0 0px;
+  background: #fff;
+}
+
+// ── Section header ────────────────────────────────────────────────────────────
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.headLeft {
+  max-width: 560px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: $primaryColor;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 2px;
+    background: $primaryColor;
+    border-radius: 2px;
+  }
+}
+
+.heading {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: $blackColor;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+
+  span {
+    color: $primaryColor;
+  }
+}
+
+.sub {
+  font-size: 0.9rem;
+  color: $blackLightColor;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: $primaryColor;
+  text-decoration: none;
+  border: 1.5px solid $primaryColor;
+  padding: 9px 18px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+  align-self: center;
+
+  &:hover {
+    background: $primaryColor;
+    color: #fff;
   }
 
-  .heading {
-    font-size: 28px;
-    line-height: 36px;
-      color: $blackColor;
-      // text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      font-weight: 600;
-  
-      span {
-        color: $primaryColor;
-      }
-      @media (max-width: 992px) {
-        font-size: 24px;
-        line-height: 32px;
-      }
-      @media (max-width: 580px) {
-        font-size: 20px;
-        line-height: 30px;
-      }
-    }
+  svg { transition: transform 0.2s ease; }
+  &:hover svg { transform: translateX(3px); }
+}
 
-  .destWrapper {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    row-gap: 15px;
-    margin-top: 25px;
-    // padding-bottom: 20px;
+// ── Grid ──────────────────────────────────────────────────────────────────────
+.destWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 
-    @media (min-width: 992px) {
-      overflow: visible;
-      flex-wrap: nowrap;
-      padding-bottom: 0;
-      align-items: center;
-    }
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .destItem {
-      width: 100%;
-      // max-width: calc(50% - (20px / 2));
-      max-width: 100%;
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
 
-      @media (min-width: 580px) {
-        min-width: 250px;
-      }
-
-      @media (min-width: 992px) {
-        max-width: calc(25% - (60px / 4));
-      }
-
-      img {
-        width: 100%;
-        border-radius: 10px;
-        height: 200px;
-        object-fit: cover;
-
-        @media (min-width: 580px) {
-          height: 250px;
-        }
-      }
-
-      p {
-        font-size: 18px;
-        text-align: center;
-        font-weight: 600;
-        line-height: 18px;
-        margin-top: 10px;
-
-        @media (min-width: 580px) {
-          font-size: 22px;
-        }
-
-        @media (min-width: 992px) {
-          font-size: 24px;
-          margin-top: 15px;
-        }
-      }
-    }
+// Featured first card spans 2 columns and has a taller image
+.destItem {
+  &.featured {
+    // @media (min-width: 992px) {
+    //   grid-column: span 2;
+    // }
   }
 }

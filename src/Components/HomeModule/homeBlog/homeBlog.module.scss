@@ -2,7 +2,7 @@
 .homeBlog{
     padding: 20px 0;
   @media screen and (min-width:991px) {
-    padding: 60px 0 60px;
+    padding: 40px 0 40px;
   }
   .headingWrapper{
     display: flex;
@@ -41,20 +41,23 @@
         line-height: 30px;
       }
     }
-      .blogRow{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        .blogItem{
-            max-width: calc((100%/3) - (48px/3));
-            width: 100%;
-            @media screen and (max-width:991px) {
-              max-width: calc(100%/2 - (24px/2));
-                  
-              }
-              @media screen and (max-width:580px) {
-                  max-width: 100%;
-              }
+      .blogRow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        .blogItem {
+          display: flex;
+        }
+
+        @media screen and (max-width: 1100px) {
+          gap: 14px;
+        }
+        @media screen and (max-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 420px) {
+          grid-template-columns: 1fr;
         }
       }
 }

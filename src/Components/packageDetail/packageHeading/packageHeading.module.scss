@@ -1,0 +1,135 @@
+@import "../../../Common/styles/varible";
+
+.packageHeading {
+  padding: 32px 0 0;
+  background: #fff;
+}
+
+.categoryTag {
+  display: inline-block;
+  background: rgba($primaryColor, 0.08);
+  color: $primaryColor;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+  border: 1px solid rgba($primaryColor, 0.2);
+}
+
+.h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  letter-spacing: -0.3px;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+// ── Meta row ──────────────────────────────────────────────────────────────────
+.metaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #64748b;
+
+  svg {
+    color: $primaryColor;
+    flex-shrink: 0;
+  }
+}
+
+.metaRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f59e0b;
+
+  em {
+    font-style: normal;
+    font-weight: 400;
+    color: #64748b;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// ── Price strip ───────────────────────────────────────────────────────────────
+.priceStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba($primaryColor, 0.05) 0%, rgba($secondayColor, 0.05) 100%);
+  border: 1px solid rgba($primaryColor, 0.15);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+}
+
+.priceInfo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.priceLabel {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $primaryColor;
+  letter-spacing: -0.5px;
+}
+
+.pricePer {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.trustBadges {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #1a1a2e;
+
+    svg {
+      color: #22c55e;
+    }
+  }
+}

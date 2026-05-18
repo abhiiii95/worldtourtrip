@@ -11,8 +11,11 @@
   "dependencies": {
     "@iconify/react": "^6.0.2",
     "bcryptjs": "^3.0.3",
+    "cloudinary": "2.5.1",
     "mongoose": "^8.16.5",
     "next": "15.4.8",
+    "nodemailer": "^8.0.7",
+    "pdf-parse": "1.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sass": "^1.91.0"
@@ -20,6 +23,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.4.4"
+    "eslint-config-next": "15.4.4",
+    "pdfkit": "^0.18.0"
   }
 }

@@ -1,6 +1,4 @@
-// import { serverApiDomain } from "@/static/static";
-const serverApiDomain = `https://worldtourtrip.com`;
-
+// Subscribe uses a relative URL — works on both local and production
 export const subscribeEmail = async (email) => {
   try {
     const res = await fetch(`/api/subscribe`, {
@@ -8,9 +6,8 @@ export const subscribeEmail = async (email) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
     });
-    const data = await res.json();
-    return data;
-  } catch (error) {
+    return await res.json();
+  } catch {
     return { status: false, message: "Network error. Please try again." };
   }
 };

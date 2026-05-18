@@ -15,7 +15,7 @@ const blogListData = data?.data ;
             <Link href="/blog" className={styles?.viewText}>View All</Link>
         </div>
       <div className={styles?.blogRow}>
-      {blogListData.slice(0,3)?.map((val, i) => {
+      {blogListData.slice(0,4)?.map((val, i) => {
               return (
                 <div className={styles?.blogItem} key={i}>
                   <BlogCard {...val} />

@@ -2,6 +2,8 @@
 @import "../../../Common/styles/varible";
 
 .whyWrapper{
+    padding: 60px 0;
+    background: #fff;
     .heading {
       font-size: 28px;
       line-height: 36px;
@@ -29,12 +31,15 @@
        flex-wrap: wrap;
        margin-top: 25px;
         .cardItem{
-            max-width: calc((100%/3) - (48px/3));
+            max-width: calc((100%/4) - (72px/4));
             width: 100%;
             @media screen and (max-width:991px) {
             max-width: calc(50% - (24px/2));
             }
             @media screen and (max-width:580px) {
+                max-width: calc(50% - (24px/2));
+            }
+            @media screen and (max-width:400px) {
                 max-width: 100%;
             }
             .card {

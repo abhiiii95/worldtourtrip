@@ -1,0 +1,232 @@
+@import "../../../Common/styles/varible";
+
+// ── Wrapper ───────────────────────────────────────────────────────────────────
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #8a0f0f 0%, $primaryColor 35%, $secondayColor 100%);
+  padding: 40px 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.2) 0px,
+      rgba(255, 255, 255, 0.2) 10px,
+      transparent 10px,
+      transparent 22px
+    );
+  }
+  &::before { top: 0; }
+  &::after  { bottom: 0; }
+}
+
+// ── Blobs ─────────────────────────────────────────────────────────────────────
+.blob1,
+.blob2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.blob1 {
+  width: 340px;
+  height: 340px;
+  background: $themeThirdColor;
+  top: -140px;
+  left: -60px;
+}
+
+.blob2 {
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  bottom: -100px;
+  right: 8%;
+}
+
+// ── Inner ─────────────────────────────────────────────────────────────────────
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+// ── Text block ────────────────────────────────────────────────────────────────
+.textBlock {
+  flex: 1;
+  min-width: 240px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+
+.pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $themeThirdColor;
+  box-shadow: 0 0 0 0 rgba($themeThirdColor, 0.7);
+  animation: ripple 1.8s ease-in-out infinite;
+}
+
+@keyframes ripple {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 224, 143, 0.7); }
+  70%  { box-shadow: 0 0 0 7px rgba(255, 224, 143, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 224, 143, 0); }
+}
+
+.headline {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.accent {
+  color: $themeThirdColor;
+}
+
+.sub {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 380px;
+}
+
+// ── Right block ───────────────────────────────────────────────────────────────
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
+}
+
+// ── Pill tags ─────────────────────────────────────────────────────────────────
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pillIcon {
+  display: flex;
+  align-items: center;
+  color: $themeThirdColor;
+}
+
+// ── Actions ───────────────────────────────────────────────────────────────────
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: $themeThirdColor;
+  color: $primaryColor;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  svg { transition: transform 0.2s ease; }
+  &:hover svg { transform: translateX(4px); }
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #fff;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 640px) {
+  .wrapper { padding: 36px 0; }
+
+  .inner { gap: 24px; }
+
+  .right { width: 100%; }
+
+  .actions {
+    width: 100%;
+    a { flex: 1; justify-content: center; }
+  }
+}

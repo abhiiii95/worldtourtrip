@@ -11,8 +11,8 @@ export const navLinks = [
     },
     {
       id: 3,
-      route: "/blog",
-      routeText: "Blogs",
+      route: "/package",
+      routeText: "Packages",
     },
     {
       id: 4,
@@ -20,14 +20,20 @@ export const navLinks = [
       routeText: "Destination",
     },
     {
-      id: 4,
+      id: 5,
+      route: "/blog",
+      routeText: "Blogs",
+    },
+    {
+      id: 6,
       route: "/contact",
       routeText: "Contact Us",
     },
   ];
   export const BaseUrl = "https://www.worldtourtrip.com";
-  export const serverApiDomain = `https://worldtourtrip.com`;
-  // export const serverApiDomain = `http://localhost:3000`;
+  // Uses NEXT_PUBLIC_BASE_URL env var — set to http://localhost:3000 locally,
+  // and https://worldtourtrip.com in production (Vercel env vars).
+  export const serverApiDomain = process.env.NEXT_PUBLIC_BASE_URL || "https://worldtourtrip.com";
 
 // for date
   export function formatBlogDate(isoDate) {

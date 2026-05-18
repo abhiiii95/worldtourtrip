@@ -1,7 +1,6 @@
-const serverApiDomain = `http://localhost:3000`;
-// const serverApiDomain = `https://worldtourtrip.com`;
+import { serverApiDomain } from "@/static/static";
 
-// ==== Submit contact form
+// ==== Submit lead / contact form
 export const submitContactForm = async (formData) => {
   try {
     const res = await fetch(`${serverApiDomain}/api/contact`, {

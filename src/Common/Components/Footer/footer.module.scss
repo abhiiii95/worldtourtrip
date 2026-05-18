@@ -1,25 +1,147 @@
+@import "../../styles/varible";
+
 .footerWrapper {
-    background-color: #eee;
-    padding: 12px;
+    background-color: #f8f8f8;
+    color: $blackColor;
+    padding: 60px 0 0;
+}
 
-    .content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @media screen and (max-width:768px) {
-            flex-wrap: wrap;
-            flex-direction: column-reverse;
-            gap: 10px;
-        }
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
 
-        ul {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .reservedtext {
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Brand column */
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.logoLink {
+    display: inline-block;
+}
+
+.description {
+    color: $blackLightColor;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 300px;
+}
+
+/* Generic column */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.columnTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: $secondayColor;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li a {
+        color: $blackLightColor;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}
+
+/* Contact column */
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        a, span {
+            color: $blackLightColor;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: $primaryColor;
+        }
+    }
+}
+
+.contactLabel {
+    color: $blackColor !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Bottom bar */
+.bottom {
+    margin-top: 48px;
+    border-top: 1px solid #e0e0e0;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
         text-align: center;
+    }
+
+    p {
+        color: $blackLightColor;
+        font-size: 13px;
+        margin: 0;
+    }
+}
+
+.legalLinks {
+    display: flex;
+    gap: 20px;
+
+    a {
+        font-size: 13px;
+        color: $blackLightColor;
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover { color: $primaryColor; }
     }
 }

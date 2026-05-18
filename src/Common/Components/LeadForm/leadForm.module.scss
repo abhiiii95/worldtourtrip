@@ -1,0 +1,297 @@
+@import "../../styles/varible";
+
+// ── Tokens ────────────────────────────────────────────────────────────────────
+$radius: 14px;
+$radius-sm: 8px;
+$border: #e2e8f0;
+$text: #1a1a2e;
+$muted: #64748b;
+$bg-input: #f8fafc;
+$shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+$transition: 0.18s ease;
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+.card {
+  background: #fff;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  border: 1px solid $border;
+  overflow: hidden;
+
+  &.compact {
+    .cardHeader {
+      padding: 16px 18px 12px;
+    }
+    .form {
+      padding: 14px 18px 18px;
+      gap: 10px;
+    }
+    .row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .field {
+      gap: 4px;
+
+      label {
+        font-size: 0.74rem;
+      }
+    }
+    .inputWrap input,
+    .inputWrap select {
+      padding: 9px 10px 9px 32px;
+      font-size: 0.84rem;
+    }
+    .submitBtn {
+      padding: 11px 16px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.cardHeader {
+  background: linear-gradient(135deg, $primaryColor 0%, $secondayColor 100%);
+  padding: 24px 24px 18px;
+  color: #fff;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.cardSubtitle {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.4;
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────────
+.form {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formNoCard {
+  padding: 0 0 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Field ─────────────────────────────────────────────────────────────────────
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: $muted;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  // Textarea is nested inside .field to satisfy CSS Modules purity rule
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid $border;
+    border-radius: $radius-sm;
+    background: $bg-input;
+    font-size: 0.88rem;
+    color: $text;
+    outline: none;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color $transition, box-shadow $transition;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #b0bec5;
+    }
+
+    &:focus {
+      border-color: $primaryColor;
+      box-shadow: 0 0 0 3px rgba($primaryColor, 0.1);
+      background: #fff;
+    }
+  }
+}
+
+// ── Input wrap ────────────────────────────────────────────────────────────────
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .inputIcon {
+    position: absolute;
+    left: 11px;
+    color: $muted;
+    font-size: 16px;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px 12px 10px 34px;
+    border: 1.5px solid $border;
+    border-radius: $radius-sm;
+    background: $bg-input;
+    font-size: 0.88rem;
+    color: $text;
+    outline: none;
+    transition: border-color $transition, box-shadow $transition;
+    font-family: inherit;
+    appearance: none;
+
+    &::placeholder {
+      color: #b0bec5;
+    }
+
+    &:focus {
+      border-color: $primaryColor;
+      box-shadow: 0 0 0 3px rgba($primaryColor, 0.1);
+      background: #fff;
+    }
+  }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%2364748b' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 28px;
+  }
+}
+
+// ── Submit ────────────────────────────────────────────────────────────────────
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, $primaryColor 0%, $secondayColor 100%);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity $transition, transform $transition, box-shadow $transition;
+  box-shadow: 0 4px 16px rgba($primaryColor, 0.35);
+  font-family: inherit;
+  margin-top: 4px;
+
+  &:hover:not(:disabled) {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba($primaryColor, 0.4);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+// ── Privacy note ──────────────────────────────────────────────────────────────
+.privacyNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: $muted;
+  margin: 0;
+  text-align: center;
+}
+
+// ── Error ─────────────────────────────────────────────────────────────────────
+.errorMsg {
+  font-size: 0.82rem;
+  color: #e53e3e;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: $radius-sm;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+// ── Success state ─────────────────────────────────────────────────────────────
+.successState {
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $muted;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.successIcon {
+  color: #22c55e;
+}
+
+.resetBtn {
+  margin-top: 8px;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1.5px solid $primaryColor;
+  color: $primaryColor;
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background $transition, color $transition;
+
+  &:hover {
+    background: $primaryColor;
+    color: #fff;
+  }
+}

@@ -1,66 +1,50 @@
 import React from 'react';
-import styles from "./homeDestinations.module.scss"
-import Image from 'next/image';
-import goa from "../../../../public/images/goa-1.jpg";
-import jaipur from "../../../../public/images/jaipur-1.jpg";
-import kerla from "../../../../public/images/kerla-1.jpg";
-import leh from "../../../../public/images/leh-1.jpg";
+import styles from "./homeDestinations.module.scss";
 import { getDestinationList } from '@/services/destinationapi';
 import Link from 'next/link';
 import DestinationCard from '@/Components/destination/destinationCard/DestinationCard';
 
-const HomeDestinations = async() => {
-    // const destData = [
-    //     {
-    //         id:1,
-    //         image:goa,
-    //         alt:"goa",
-    //         title:"Goa",
-    //         dest:"Goa"
-    //     },
-    //     {
-    //         id:2,
-    //         image:jaipur,
-    //         alt:"jaipur",
-    //         title:"Jaipur",
-    //         dest:"Jaipur"
-    //     },
-    //     {
-    //         id:1,
-    //         image:kerla,
-    //         alt:"kerla",
-    //         title:"Kerla",
-    //         dest:"Kerla"
-    //     },
-    //     {
-    //         id:1,
-    //         image:leh,
-    //         alt:"leh",
-    //         title:"Leh ladakh",
-    //         dest:"Leh ladakh"
-    //     },
-    // ]
-    const data = await getDestinationList();
-    const destinationListData = data?.destinations;
+const HomeDestinations = async () => {
+  const data = await getDestinationList();
+  const destinationListData = data?.destinations;
+
   return (
-    <section className={styles?.homeDestination}>
-      <div className='container'>
-        <h4 className={styles?.heading}>Most Popular <span>Destinations</span></h4>
-        <div className={styles?.destWrapper}>
-            {
-                destinationListData?.map((val,i)=>{
-                    return(
-                        <div key={i} className={styles?.destItem}>
-                        <DestinationCard {...val} />
-                        </div>
-                    )
-                })
-            }
-          
+    <section className={styles.homeDestination}>
+      <div className="container">
+
+        <div className={styles.sectionHead}>
+          <div className={styles.headLeft}>
+            <span className={styles.eyebrow}>Where Do You Want to Go?</span>
+            <h2 className={styles.heading}>
+              Most Popular <span>Destinations</span>
+            </h2>
+            <p className={styles.sub}>
+              Explore our handpicked collection of breathtaking destinations — from serene mountains to vibrant coastlines.
+            </p>
+          </div>
+          <Link href="/destination" className={styles.viewAll}>
+            View All
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
         </div>
+
+        <div className={styles.destWrapper}>
+          {destinationListData?.map((val, i) => (
+            <div
+              key={i}
+              className={`${styles.destItem} ${i === 0 ? styles.featured : ''}`}
+            >
+              <DestinationCard {...val} featured={i === 0} />
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HomeDestinations
+export default HomeDestinations;

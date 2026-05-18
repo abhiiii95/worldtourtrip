@@ -1,0 +1,278 @@
+@import "../../../../Common/styles/varible";
+
+$radius: 18px;
+$transition: 0.25s ease;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius;
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform $transition, box-shadow $transition;
+  height: 100%;
+  width: 100%;
+
+  // Colored top accent line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primaryColor, $secondayColor);
+    z-index: 2;
+    border-radius: $radius $radius 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+
+    .image { transform: scale(1.08); }
+    .bookBtn {
+      background: $primaryColor;
+      color: #fff;
+      padding-right: 16px;
+    }
+  }
+}
+
+// ── Image ─────────────────────────────────────────────────────────────────────
+.imageWrapper {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  // Diagonal cut at the bottom of image
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: #fff;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+    z-index: 1;
+  }
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.18) 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.52) 100%
+  );
+  z-index: 0;
+}
+
+// Top badges row
+.topRow {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.badge {
+  background: $primaryColor;
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.discountBadge {
+  background: #16a34a;
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+}
+
+// Floating price tag on right side
+.priceTag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 6px 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.origPrice {
+  font-size: 0.58rem;
+  color: #94a3b8;
+  text-decoration: line-through;
+  line-height: 1;
+}
+
+.priceFrom {
+  font-size: 0.55rem;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.priceVal {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: $primaryColor;
+  line-height: 1.2;
+}
+
+.priceSub {
+  font-size: 0.55rem;
+  color: #94a3b8;
+  line-height: 1;
+}
+
+// Bottom strip on image (rating + duration)
+.imageBottom {
+  position: absolute;
+  bottom: 14px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  z-index: 2;
+}
+
+.ratingChip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  color: #fbbf24;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+
+.durationChip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+.content {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.locationDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $primaryColor;
+  flex-shrink: 0;
+}
+
+.locationText {
+  font-size: 0.68rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 14px;
+  line-height: 1.38;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+// ── Footer row ────────────────────────────────────────────────────────────────
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px dashed #e2e8f0;
+  margin-top: auto;
+}
+
+.pax {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+
+  svg { color: $primaryColor; }
+}
+
+.bookBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: $primaryColor;
+  background: #fff5f5;
+  border: 1.5px solid $primaryColor;
+  border-radius: 100px;
+  padding: 6px 13px;
+  transition: background $transition, color $transition, padding-right $transition;
+  white-space: nowrap;
+}

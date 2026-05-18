@@ -7,38 +7,38 @@ const HomeWhyChoose = () => {
   const data = [
     {
       id: 1,
-      icon: <Icon icon="fluent:person-info-20-regular" width="24" height="24" />,
-      heading: "Authentic Information",
-      body: "Our writers have physically been to the places they describe. That ground-level knowledge is baked into everything we publish — and you can feel it when you read.",
+      icon: <Icon icon="mdi:currency-inr" width="24" height="24" />,
+      heading: "Best Price Guarantee",
+      body: "We work directly with hotels, transport providers, and local guides — cutting out middlemen so you get the best possible price on every package.",
       accent: "01",
     },
     {
       id: 2,
-      icon: <Icon icon="streamline-ultimate:information-desk-customer" width="24" height="24" />,
-      heading: "Accurate Details",
-      body: "No brand deals, no affiliate structures, no hidden agenda shaping our opinions. We write about travel because we love it, full stop.",
+      icon: <Icon icon="mdi:headset" width="24" height="24" />,
+      heading: "24/7 Travel Support",
+      body: "Our dedicated travel experts are available round the clock. Whether it's a last-minute change or an on-trip emergency, we've got you covered.",
       accent: "02",
     },
     {
       id: 3,
-      icon: <Icon icon="prime:gift" width="24" height="24" />,
-      heading: "Free Knowledge",
-      body: "Every guide, every article, every tip we put out is sitting right there waiting for you the moment you arrive. Free today, free always.",
+      icon: <Icon icon="mdi:map-check-outline" width="24" height="24" />,
+      heading: "Handcrafted Itineraries",
+      body: "Every package is designed by travel experts who have personally visited the destinations — no cookie-cutter tours, just authentic experiences.",
       accent: "03",
     },
-    // {
-    //   id: 4,
-    //   icon: <Icon icon="majesticons:timer-line" width="24" height="24" />,
-    //   heading: "Every Article Earned Its Place",
-    //   body: "Nothing goes up on WorldTourTrip just to fill space. We are interested in writing that actually does something for the person reading it — and we hold that standard every single time.",
-    //   accent: "04",
-    // },
+    {
+      id: 4,
+      icon: <Icon icon="mdi:shield-check-outline" width="24" height="24" />,
+      heading: "100% Safe & Trusted",
+      body: "5000+ happy travelers, verified accommodations, and fully insured trips. Your safety and satisfaction are our top priority on every journey.",
+      accent: "04",
+    },
   ];
   return (
     <section className={styles?.whyWrapper}>
       <div className="container">
         <h2 className={styles?.heading}>
-          Why <span>Choose</span> Us
+          Why <span>Book</span> With Us
         </h2>
         <div className={styles?.row}>
           {data?.map((item, i) => {

@@ -9,19 +9,39 @@ const ContactSchema = new mongoose.Schema(
     },
     lastName: {
       type: String,
-      required: [true, "Last name is required"],
       trim: true,
     },
     email: {
       type: String,
-      required: [true, "Email is required"],
       trim: true,
       lowercase: true,
     },
+    phone: {
+      type: String,
+      required: [true, "Phone number is required"],
+      trim: true,
+    },
+    destination: {
+      type: String,
+      trim: true,
+    },
+    travelDate: {
+      type: String,
+      trim: true,
+    },
+    travelers: {
+      type: String,
+      trim: true,
+    },
     comment: {
       type: String,
-      required: [true, "Comment is required"],
       trim: true,
+    },
+    // source helps track where the lead came from (contact page, package detail, home, etc.)
+    source: {
+      type: String,
+      trim: true,
+      default: "contact",
     },
   },
   { timestamps: true },
