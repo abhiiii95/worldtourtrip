@@ -16,17 +16,17 @@ export const metadata = {
     "honeymoon packages India",
   ],
   alternates: {
-    canonical: `${BaseUrl}/package`,
+    canonical: `${BaseUrl}package`,
   },
   openGraph: {
     title: "Tour Packages — Best Travel Packages in India | World Tour Trip",
     description:
       "Browse handcrafted tour packages across India — Leh Ladakh, Kerala, Goa, Rajasthan & more. Filter by destination, duration, and budget.",
-    url: `${BaseUrl}/package`,
+    url: `${BaseUrl}package`,
     siteName: "World Tour Trip",
     images: [
       {
-        url: `${BaseUrl}/images/ladakh.webp`,
+        url: `${BaseUrl}images/ladakh.webp`,
         width: 1200,
         height: 630,
         alt: "Tour Packages — World Tour Trip",
@@ -40,7 +40,7 @@ export const metadata = {
     title: "Tour Packages — Best Travel Packages in India | World Tour Trip",
     description:
       "Browse handcrafted tour packages across India — Leh Ladakh, Kerala, Goa, Rajasthan & more.",
-    images: [`${BaseUrl}/images/ladakh.webp`],
+    images: [`${BaseUrl}images/ladakh.webp`],
   },
 };
 

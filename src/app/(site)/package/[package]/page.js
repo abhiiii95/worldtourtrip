@@ -19,8 +19,8 @@ export async function generateMetadata({ params }) {
     ? `${pkg.subtitle} — Book now starting from ₹${Number(pkg.price).toLocaleString("en-IN")} per person. ${pkg.location ? `Explore ${pkg.location}.` : ""}`
     : `Explore ${pkg.title} starting from ₹${Number(pkg.price).toLocaleString("en-IN")} per person. Book your dream holiday with World Tour Trip.`;
 
-  const image = pkg.gallery?.[0] || `${BaseUrl}/images/ladakh.webp`;
-  const canonical = `${BaseUrl}/package/${slug}`;
+  const image = pkg.gallery?.[0] || `${BaseUrl}images/ladakh.webp`;
+  const canonical = `${BaseUrl}package/${slug}`;
 
   return {
     title,

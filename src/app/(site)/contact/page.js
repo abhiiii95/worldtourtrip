@@ -17,7 +17,7 @@ export const metadata = {
       "Online travel help"
     ],
     alternates: {
-      canonical: `${BaseUrl}/contact`,
+      canonical: `${BaseUrl}contact`,
     },
   
   };

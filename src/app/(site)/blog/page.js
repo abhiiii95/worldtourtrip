@@ -18,7 +18,7 @@ export const metadata = {
     'best places to visit India',
   ],
   alternates: {
-    canonical: `${BaseUrl}/blog`,
+    canonical: `${BaseUrl}blog`,
   },
 }
 

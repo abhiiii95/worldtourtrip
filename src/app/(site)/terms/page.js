@@ -7,7 +7,7 @@ export const metadata = {
     description:
       "Read the terms and conditions for flight bookings, hotel reservations, and holiday packages. Learn about payments, cancellations, refunds, and travel policies before booking.",
     alternates: {
-        canonical: `${BaseUrl}/terms`,
+        canonical: `${BaseUrl}terms`,
       },
   
   };

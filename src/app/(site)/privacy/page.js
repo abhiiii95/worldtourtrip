@@ -6,7 +6,7 @@ export const metadata = {
     description:
       "Learn how we collect, use, and protect your personal information when booking flights, hotels, and holiday packages through our online travel platform.",
     alternates: {
-        canonical: `${BaseUrl}/privacy`,
+        canonical: `${BaseUrl}privacy`,
       },
   
   };

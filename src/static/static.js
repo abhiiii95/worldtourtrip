@@ -30,7 +30,7 @@ export const navLinks = [
       routeText: "Contact Us",
     },
   ];
-  export const BaseUrl = "https://www.worldtourtrip.com";
+  export const BaseUrl = "https://www.worldtourtrip.com/";
   // Uses NEXT_PUBLIC_BASE_URL env var — set to http://localhost:3000 locally,
   // and https://worldtourtrip.com in production (Vercel env vars).
   export const serverApiDomain = process.env.NEXT_PUBLIC_BASE_URL || "https://worldtourtrip.com";

@@ -23,7 +23,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: `${BaseUrl}/destination`,
+    canonical: `${BaseUrl}destination`,
   },
 };
 

@@ -16,7 +16,7 @@ export const metadata = {
     "Book flights and hotels",
   ],
   alternates: {
-    canonical: `${BaseUrl}/about`,
+    canonical: `${BaseUrl}about`,
   },
 
 };

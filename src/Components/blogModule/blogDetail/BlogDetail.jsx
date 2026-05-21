@@ -66,13 +66,13 @@ const BlogDetail = ({ data, blog, allblog }) => {
       name: "WorldTourTrip", // keep brand name fixed (important)
       logo: {
         "@type": "ImageObject",
-        url: `${BaseUrl}/logo.svg` // add your actual logo URL
+        url: `${BaseUrl}logo.svg` // add your actual logo URL
       }
     },
   
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${BaseUrl}/blog/${blogData?.routPath}`
+      "@id": `${BaseUrl}blog/${blogData?.routPath}`
     },
   
     articleSection: "Travel",
@@ -96,13 +96,13 @@ const BlogDetail = ({ data, blog, allblog }) => {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": `${BaseUrl}/blog`
+        "item": `${BaseUrl}blog`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": blogData?.title,
-        "item": `${BaseUrl}/blog/${blogData?.routPath}`
+        "item": `${BaseUrl}blog/${blogData?.routPath}`
       }
     ]
   }
