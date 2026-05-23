@@ -2,7 +2,7 @@ import { getBlogList } from "@/services/blogservices";
 import { getDestinationList } from "@/services/destinationapi";
 import { getPackageList } from "@/services/packageServices";
 
-const fallbackDate = new Date('2026-03-20T18:08:11+00:00');
+const fallbackDate = new Date(); // always current date
 
 function safeDate(val) {
   if (!val) return fallbackDate;
@@ -11,17 +11,17 @@ function safeDate(val) {
 }
 
 export default async function sitemap() {
-  const baseUrl = 'https://worldtourtrip.com'
+  const baseUrl = 'https://www.worldtourtrip.com' // www fixed
 
   const staticRoutes = [
-    { url: `${baseUrl}/`, lastModified: fallbackDate, priority: 1.0 },
-    { url: `${baseUrl}/about`, lastModified: fallbackDate, priority: 0.8 },
-    { url: `${baseUrl}/blog`, lastModified: fallbackDate, priority: 0.8 },
-    { url: `${baseUrl}/destination`, lastModified: fallbackDate, priority: 0.8 },
-    { url: `${baseUrl}/package`, lastModified: fallbackDate, priority: 0.9 },
-    { url: `${baseUrl}/contact`, lastModified: fallbackDate, priority: 0.8 },
-    { url: `${baseUrl}/privacy`, lastModified: fallbackDate, priority: 0.8 },
-    { url: `${baseUrl}/terms`, lastModified: fallbackDate, priority: 0.8 },
+    { url: `${baseUrl}/`, lastModified: fallbackDate, priority: 1.0, changeFrequency: 'daily' },
+    { url: `${baseUrl}/about`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/blog`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'weekly' },
+    { url: `${baseUrl}/destination`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'weekly' },
+    { url: `${baseUrl}/package`, lastModified: fallbackDate, priority: 0.9, changeFrequency: 'daily' },
+    { url: `${baseUrl}/contact`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/privacy`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'yearly' },
+    { url: `${baseUrl}/terms`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'yearly' },
   ]
 
   let blogRoutes = [];
@@ -38,6 +38,7 @@ export default async function sitemap() {
           url: `${baseUrl}/blog/${blog.routPath}`,
           lastModified: safeDate(blog.updatedAt || blog.createdAt),
           priority: 0.8,
+          changeFrequency: 'weekly',
         }))
     }
   } catch (error) {
@@ -54,6 +55,7 @@ export default async function sitemap() {
           url: `${baseUrl}/destination/${dest.routPath}`,
           lastModified: safeDate(dest.updatedAt || dest.createdAt),
           priority: 0.8,
+          changeFrequency: 'weekly',
         }))
     }
   } catch (error) {
@@ -70,6 +72,7 @@ export default async function sitemap() {
           url: `${baseUrl}/package/${pkg.slug}`,
           lastModified: safeDate(pkg.updatedAt || pkg.createdAt),
           priority: 0.9,
+          changeFrequency: 'daily',
         }))
     }
   } catch (error) {
