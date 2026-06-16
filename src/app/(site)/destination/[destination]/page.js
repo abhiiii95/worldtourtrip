@@ -1,5 +1,6 @@
 import DestinationDetail from '@/Components/destination/destinationDetail/DestinationDetail'
 import { getDestinationList, getDetailDestination } from '@/services/destinationapi'
+import { BaseUrl } from '@/static/static'
 import React from 'react'
 
 const DestinationDetailPage = async({params}) => {
@@ -24,6 +25,9 @@ export async function generateMetadata({ params }) {
   return {
     title: destinationgData?.metaTitle,
     description: destinationgData?.metaDescription,
-    keywords: [destinationgData?.metaKeywords]
+    keywords: [destinationgData?.metaKeywords],
+    alternates: {
+      canonical: `${BaseUrl}destination/${destination}`,
+    },
   };
 }

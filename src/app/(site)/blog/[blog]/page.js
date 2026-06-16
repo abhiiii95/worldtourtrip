@@ -1,5 +1,6 @@
 import BlogDetail from '@/Components/blogModule/blogDetail/BlogDetail'
 import { getBlogList, getDetailBlog } from '@/services/blogservices'
+import { BaseUrl } from '@/static/static'
 import React from 'react'
 
 const BlogDetailPage = async({params}) => {
@@ -24,6 +25,9 @@ export async function generateMetadata({ params }) {
   return {
     title: blogData?.metaTitle,
     description: blogData?.metaDescription,
-    keywords: [blogData?.metaKeywords]
+    keywords: [blogData?.metaKeywords],
+    alternates: {
+      canonical: `${BaseUrl}blog/${blog}`,
+    },
   };
 }
