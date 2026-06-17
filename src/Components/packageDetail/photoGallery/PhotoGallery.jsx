@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import styles from "./photoGallery.module.scss";
 
 // Fallback photos shown when no gallery images are in the DB yet
@@ -93,8 +94,14 @@ export default function PhotoGallery({ images = [] }) {
               aria-label={`Open photo: ${photo.alt}`}
               onKeyDown={(e) => e.key === "Enter" && openModal(index)}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={photo.src} alt={photo.alt} loading={index === 0 ? "eager" : "lazy"} />
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width:700px) 50vw, 25vw"
+                style={{ objectFit: "cover" }}
+                priority={index === 0}
+              />
               <div className={styles.overlay}>
                 <div className={styles.overlayIcon}>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

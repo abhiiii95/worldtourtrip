@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://worldtourtrip.com/sitemap.xml
+Sitemap: https://www.worldtourtrip.com/sitemap.xml

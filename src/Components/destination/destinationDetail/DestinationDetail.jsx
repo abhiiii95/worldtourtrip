@@ -1,17 +1,33 @@
 import AboutBanner from "@/Common/Components/AboutBanner/AboutBanner";
 import React from "react";
 import styles from "./destinationDetail.module.scss";
-import { getDatePart, removeInlineStyles } from "@/static/static";
+import { getDatePart, removeInlineStyles, BaseUrl } from "@/static/static";
 import { Icon } from "@iconify/react";
 import FaqSection from "@/Components/faqSection/FaqSection";
 import RecentDestinationCard from "./RecentDestinationCard";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 const DestinationDetail = ({ data, destination, allDest }) => {
   const destinationData = data?.destinations;
   const packages = data?.packages || [];
   const cleanContent = removeInlineStyles(destinationData?.content);
+
+  const placeSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: destinationData?.title,
+    description: destinationData?.metaDescription || destinationData?.title,
+    url: `${BaseUrl}destination/${destination}`,
+    image: destinationData?.thumbnail || `${BaseUrl}images/og-default.jpg`,
+    touristType: [{ "@type": "Audience", audienceType: "Tourists" }],
+    includesAttraction: packages.slice(0, 5).map((pkg) => ({
+      "@type": "TouristAttraction",
+      name: pkg.title,
+      url: `${BaseUrl}package/${pkg.slug}`,
+    })),
+  };
 
   const bannerData = [
     { id: 1, route: "/destination", routeText: "Destinations" },
@@ -20,6 +36,11 @@ const DestinationDetail = ({ data, destination, allDest }) => {
 
   return (
     <>
+      <Script
+        id="schema-tourist-destination"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
+      />
       <AboutBanner banner={bannerData} heading={destinationData?.title} bannerData={destinationData} />
 
       {/* Packages for this destination */}

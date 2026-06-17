@@ -2,26 +2,24 @@ import { getBlogList } from "@/services/blogservices";
 import { getDestinationList } from "@/services/destinationapi";
 import { getPackageList } from "@/services/packageServices";
 
-const fallbackDate = new Date(); // always current date
-
 function safeDate(val) {
-  if (!val) return fallbackDate;
+  if (!val) return new Date('2025-01-01');
   const d = new Date(val);
-  return isNaN(d.getTime()) ? fallbackDate : d;
+  return isNaN(d.getTime()) ? new Date('2025-01-01') : d;
 }
 
 export default async function sitemap() {
-  const baseUrl = 'https://www.worldtourtrip.com' // www fixed
+  const baseUrl = 'https://www.worldtourtrip.com'
 
   const staticRoutes = [
-    { url: `${baseUrl}/`, lastModified: fallbackDate, priority: 1.0, changeFrequency: 'daily' },
-    { url: `${baseUrl}/about`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/blog`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/destination`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/package`, lastModified: fallbackDate, priority: 0.9, changeFrequency: 'daily' },
-    { url: `${baseUrl}/contact`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/privacy`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'yearly' },
-    { url: `${baseUrl}/terms`, lastModified: fallbackDate, priority: 0.8, changeFrequency: 'yearly' },
+    { url: `${baseUrl}/`, lastModified: new Date('2025-06-01'), priority: 1.0, changeFrequency: 'daily' },
+    { url: `${baseUrl}/about`, lastModified: new Date('2025-06-01'), priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/blog`, lastModified: new Date('2025-06-01'), priority: 0.8, changeFrequency: 'weekly' },
+    { url: `${baseUrl}/destination`, lastModified: new Date('2025-06-01'), priority: 0.8, changeFrequency: 'weekly' },
+    { url: `${baseUrl}/package`, lastModified: new Date('2025-06-01'), priority: 0.9, changeFrequency: 'daily' },
+    { url: `${baseUrl}/contact`, lastModified: new Date('2025-06-01'), priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/privacy`, lastModified: new Date('2025-01-01'), priority: 0.5, changeFrequency: 'yearly' },
+    { url: `${baseUrl}/terms`, lastModified: new Date('2025-01-01'), priority: 0.5, changeFrequency: 'yearly' },
   ]
 
   let blogRoutes = [];

@@ -1,8 +1,10 @@
 import PackageListing from "@/Components/packageModule/PackageListing";
 import { BaseUrl } from "@/static/static";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
-  title: "Tour Packages — Best Travel Packages in India | World Tour Trip",
+  title: "Tour Packages – Best Travel Packages in India",
   description:
     "Browse handcrafted tour packages across India — Leh Ladakh, Kerala, Goa, Rajasthan & more. Filter by destination, duration, and budget. Get a free quote today.",
   keywords: [
@@ -19,7 +21,7 @@ export const metadata = {
     canonical: `${BaseUrl}package`,
   },
   openGraph: {
-    title: "Tour Packages — Best Travel Packages in India | World Tour Trip",
+    title: "Tour Packages – Best Travel Packages in India | World Tour Trip",
     description:
       "Browse handcrafted tour packages across India — Leh Ladakh, Kerala, Goa, Rajasthan & more. Filter by destination, duration, and budget.",
     url: `${BaseUrl}package`,
@@ -29,7 +31,7 @@ export const metadata = {
         url: `${BaseUrl}images/ladakh.webp`,
         width: 1200,
         height: 630,
-        alt: "Tour Packages — World Tour Trip",
+        alt: "Tour Packages – World Tour Trip",
       },
     ],
     type: "website",
@@ -37,7 +39,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tour Packages — Best Travel Packages in India | World Tour Trip",
+    title: "Tour Packages – Best Travel Packages in India | World Tour Trip",
     description:
       "Browse handcrafted tour packages across India — Leh Ladakh, Kerala, Goa, Rajasthan & more.",
     images: [`${BaseUrl}images/ladakh.webp`],

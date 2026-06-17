@@ -1,0 +1,135 @@
+SEO AUDIT — worldtourtrip.com
+=============================================================
+
+WHAT'S ALREADY GOOD
+-------------------------------------------------------------
+- Sitemap with all dynamic routes (blog, destination, package)
+- Canonical tags on all pages
+- Admin pages correctly blocked from indexing
+- Google Analytics properly implemented
+- Package detail page has full OpenGraph + Twitter card
+- Blog detail has 3 schemas: FAQPage, BlogPosting, BreadcrumbList
+- Internal links all use Next.js <Link> — no nofollow issues
+- Cloudinary images properly configured
+
+
+=============================================================
+CRITICAL — Fix These First
+=============================================================
+
+1. robots.txt sitemap URL mismatch
+   - robots.txt says : https://worldtourtrip.com/sitemap.xml  (no www)
+   - Site is        : https://www.worldtourtrip.com
+   - Fix to         : https://www.worldtourtrip.com/sitemap.xml
+   - Risk           : Google may not find your sitemap at all
+
+2. Root layout has NO default metadata
+   - No default title, description, openGraph, twitter, viewport, favicon in layout.js
+   - Pages that fail to load data will render with blank titles in Google
+
+3. Blog & Destination detail pages missing OpenGraph + Twitter card
+   - No social preview when links shared on WhatsApp, Twitter, Facebook
+   - Package pages have it but blog/destination don't — inconsistent
+
+
+=============================================================
+HIGH PRIORITY
+=============================================================
+
+4. Missing Schema markup on key pages
+
+   Page               Missing Schema
+   -----------------  -------------------------------------------
+   Homepage           Organization, WebSite (enables Sitelinks Searchbox)
+   Package detail     TouristTrip or Product schema (price, availability)
+   Destination detail Place or TouristDestination schema
+   Contact page       LocalBusiness with phone, address, email
+
+5. PhotoGallery uses plain <img> tags
+   - Package detail gallery doesn't use next/image
+   - No WebP conversion, no lazy optimization from Next.js
+
+6. No loading.js on dynamic routes
+   - /blog/[blog], /destination/[destination], /package/[package] have no skeleton UI
+   - Slow TTFB = Google Core Web Vitals penalty
+
+7. Title format inconsistent across pages
+   - Home          : World Tour Trip – Best Travel...   (em-dash)
+   - Blog          : Travel Blogs | World Tour Trip     (pipe)
+   - Package detail: {title} | World Tour Trip          (pipe)
+   - Fix           : Pick one format and use it everywhere
+   - Recommended   : {Page Title} | World Tour Trip
+
+
+=============================================================
+MEDIUM PRIORITY
+=============================================================
+
+8. Keywords array bug in blog & destination generateMetadata
+   Current (wrong) : keywords: [blogData?.metaKeywords]
+   Fixed           : keywords: blogData?.metaKeywords?.split(',').map(k => k.trim())
+
+9. Sitemap missing lastmod from actual data
+   - Currently uses today's date as fallback for all pages
+   - Should use updatedAt from each blog/package/destination record
+   - Signals freshness to Google
+
+10. No www redirect enforcement
+    - http://worldtourtrip.com may not redirect to https://www.worldtourtrip.com
+    - Add middleware or next.config.js redirect rule
+
+11. API fallback domain missing www
+    - serverApiDomain fallback is https://worldtourtrip.com (no www)
+    - Should match https://www.worldtourtrip.com
+
+
+=============================================================
+LOW PRIORITY — Bonus Gains
+=============================================================
+
+12. No WebSite schema with SearchAction
+    - Enables Google Sitelinks Searchbox in search results
+    - Your site search can appear directly inside Google results
+
+13. Package pages: add aggregateRating to schema
+    - If ratings data exists, adding it shows star ratings in Google results
+
+14. Blog pages: add author page links
+    - Google rewards author E-E-A-T signals
+    - Link author name to an author bio page
+
+15. No hreflang tag
+    - Only relevant if you plan multi-language support — skip for now
+
+
+=============================================================
+IMPACT vs EFFORT
+=============================================================
+
+Fix                                  Impact    Effort
+-----------------------------------  --------  ----------
+robots.txt sitemap URL               High      2 min
+Root layout default metadata         High      15 min
+Blog/Destination OpenGraph           High      20 min
+Organization + WebSite schema        High      20 min
+Package TouristTrip schema           High      30 min
+Keywords array bug                   Medium    5 min
+Sitemap lastmod from real data       Medium    20 min
+loading.js skeleton screens          Medium    1 hour
+Title format consistency             Medium    10 min
+PhotoGallery to next/image           Low       30 min
+
+
+=============================================================
+FILES TO EDIT
+=============================================================
+
+public/robots.txt                              → Fix sitemap URL
+src/app/layout.js                              → Add default metadata
+src/app/(site)/blog/[blog]/page.js             → Add OpenGraph + Twitter
+src/app/(site)/destination/[destination]/page.js → Add OpenGraph + Twitter
+src/app/(site)/page.js                         → Add Organization + WebSite schema
+src/app/(site)/package/[package]/page.js       → Add TouristTrip schema
+src/app/(site)/contact/page.js                 → Add LocalBusiness schema
+src/app/sitemap.js                             → Use updatedAt for lastmod
+src/static/static.js                           → Fix serverApiDomain www

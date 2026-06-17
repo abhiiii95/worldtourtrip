@@ -110,14 +110,17 @@ const BlogDetail = ({ data, blog, allblog }) => {
   return (
     <>
       <Script
+          id="schema-faq"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       <Script
+          id="schema-blog-posting"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
         />
       <Script
+          id="schema-breadcrumb"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadSchema) }}
         />

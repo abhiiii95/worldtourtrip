@@ -4,6 +4,8 @@ import { Icon } from '@iconify/react';
 import PhotoGallery from '../photoGallery/PhotoGallery';
 import TourDetail from '../TourDetail';
 import { getPackageBySlug } from '@/services/packageServices';
+import Script from 'next/script';
+import { BaseUrl } from '@/static/static';
 
 const PackageHeading = async ({ slug }) => {
   const res = await getPackageBySlug(slug);
@@ -20,8 +22,43 @@ const PackageHeading = async ({ slug }) => {
     );
   }
 
+  const touristTripSchema = {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    name: pkg.title,
+    description: pkg.subtitle || pkg.description || pkg.title,
+    url: `${BaseUrl}package/${pkg.slug}`,
+    image: pkg.gallery?.[0] || pkg.thumbnail || `${BaseUrl}images/og-default.jpg`,
+    touristType: "Leisure",
+    itinerary: {
+      "@type": "ItemList",
+      numberOfItems: pkg.duration || 1,
+    },
+    offers: {
+      "@type": "Offer",
+      price: Number(pkg.price) + Number(pkg.margin || 0),
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      url: `${BaseUrl}package/${pkg.slug}`,
+      validFrom: new Date().toISOString().split("T")[0],
+    },
+    ...(pkg.location && {
+      touristType: "Leisure",
+      itinerary: {
+        "@type": "ItemList",
+        numberOfItems: pkg.duration || 1,
+        name: `${pkg.title} Itinerary`,
+      },
+    }),
+  };
+
   return (
     <section className={styles.packageHeading}>
+      <Script
+        id="schema-tourist-trip"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristTripSchema) }}
+      />
       <div className='container'>
         <span className={styles.categoryTag}>{pkg.category}</span>
 

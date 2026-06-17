@@ -9,7 +9,7 @@ export const getDestinationList = async () => {
     if (!res.ok) throw new Error("Failed to fetch");
     return await res.json();
   } catch {
-    return { status: false, data: [] };
+    return { status: false, destinations: [] };
   }
 };
 
@@ -17,11 +17,11 @@ export const getDetailDestination = async (id) => {
   try {
     const res = await fetch(`${serverApiDomain}/api/destination/${id}`, {
       method: "GET",
-      cache: "no-store",
+      next: { revalidate: 3600 },
     });
     if (!res.ok) throw new Error("Failed to fetch");
     return await res.json();
   } catch {
-    return { status: false, data: [] };
+    return { status: false, destinations: null };
   }
 };
